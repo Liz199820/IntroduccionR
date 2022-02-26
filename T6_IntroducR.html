@@ -358,19 +358,31 @@ div.tocify {
 <p>Crear un dataframe con 12 eventos (files) y 5 variables (columnas), cada columna debe tener diferentes tipos de datos (entero, decimal, caracter, logico)</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>poblacion_países_america <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">identador =</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>), </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">norte_sur =</span> <span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dv">1</span>, <span class="dv">1</span>)), </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                países <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Argentina&quot;</span>, <span class="st">&quot;Bolivia&quot;</span>, <span class="st">&quot;Brasil&quot;</span>, <span class="st">&quot;Chile&quot;</span>, <span class="st">&quot;Colombia&quot;</span>, <span class="st">&quot;Ecuador&quot;</span>, <span class="st">&quot;Guyana&quot;</span>,      <span class="st">&quot;Paraguay&quot;</span>, <span class="st">&quot;Perú&quot;</span>, <span class="st">&quot;Surinam&quot;</span>, <span class="st">&quot;USA&quot;</span>, <span class="st">&quot;Mexico&quot;</span>),</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">poblacion =</span> <span class="fu">c</span>(<span class="fl">45.38</span>, <span class="fl">11.67</span>, <span class="fl">212.6</span>, <span class="fl">19.12</span>, <span class="fl">50.88</span>, <span class="fl">17.64</span>, <span class="fl">0.79</span>, <span class="fl">32.97</span>, <span class="fl">0.59</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                                              <span class="fl">329.5</span>, <span class="fl">128.9</span>, <span class="dv">125</span>)) <span class="co">#millones</span></span></code></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                países <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Argentina&quot;</span>, <span class="st">&quot;Bolivia&quot;</span>, <span class="st">&quot;Brasil&quot;</span>, <span class="st">&quot;Chile&quot;</span>, <span class="st">&quot;Colombia&quot;</span>, <span class="st">&quot;Ecuador&quot;</span>, <span class="st">&quot;Guyana&quot;</span>, <span class="st">&quot;Paraguay&quot;</span>, <span class="st">&quot;Perú&quot;</span>, <span class="st">&quot;Surinam&quot;</span>, <span class="st">&quot;USA&quot;</span>, <span class="st">&quot;Mexico&quot;</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">poblacion =</span> <span class="fu">c</span>(<span class="fl">45.38</span>, <span class="fl">11.67</span>, <span class="fl">212.6</span>, <span class="fl">19.12</span>, <span class="fl">50.88</span>, <span class="fl">17.64</span>, <span class="fl">0.79</span>,  <span class="fl">32.97</span>, <span class="fl">0.59</span>, <span class="fl">329.5</span>, <span class="fl">128.9</span>, <span class="dv">125</span>)) <span class="co">#millones</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(poblacion_países_america)</span></code></pre></div>
+<pre><code>##    identador norte_sur    países poblacion
+## 1          1         0 Argentina     45.38
+## 2          2         0   Bolivia     11.67
+## 3          3         0    Brasil    212.60
+## 4          4         0     Chile     19.12
+## 5          5         0  Colombia     50.88
+## 6          6         0   Ecuador     17.64
+## 7          7         0    Guyana      0.79
+## 8          8         0  Paraguay     32.97
+## 9          9         0      Perú      0.59
+## 10        10         0   Surinam    329.50
+## 11        11         1       USA    128.90
+## 12        12         1    Mexico    125.00</code></pre>
 </div>
 <div id="dataset" class="section level2">
 <h2>4. Dataset</h2>
 <p>Cargue el dataset “DNase” e identifique su estructura. Extraiga (subset) los datos que cumpla con las condiciones de: “conc” (concentración) entre 0.1 y 0.2 / “Run” diferente a 2, “conc” mayor a 0.2 y “densitiy” menor o igual a 1.0</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/a123k/OneDrive/Documentos&quot;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(DNase)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>database <span class="ot">&lt;-</span>(DNase)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(DNase)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/a123k/OneDrive/Documentos&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>database <span class="ot">&lt;-</span> <span class="fu">data</span>(DNase)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(DNase)</span></code></pre></div>
 <pre><code>## [1] &quot;nfnGroupedData&quot; &quot;nfGroupedData&quot;  &quot;groupedData&quot;    &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
@@ -379,8 +391,39 @@ div.tocify {
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>first_filter <span class="ot">&lt;-</span> <span class="fu">filter</span>(DNase, conc <span class="sc">&lt;</span> <span class="fl">0.2</span> <span class="sc">&amp;</span> conc <span class="sc">&gt;</span> <span class="fl">0.1</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>second_filter <span class="ot">&lt;-</span> <span class="fu">filter</span>(DNase, Run <span class="sc">!=</span><span class="dv">2</span> <span class="sc">&amp;</span> conc <span class="sc">&gt;</span> <span class="fl">0.2</span> <span class="sc">&amp;</span> density <span class="sc">&lt;=</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>first_filter <span class="ot">&lt;-</span> <span class="fu">filter</span>(DNase, conc <span class="sc">&lt;</span> <span class="fl">0.2</span> <span class="sc">&amp;</span> conc <span class="sc">&gt;</span> <span class="fl">0.1</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>second_filter <span class="ot">&lt;-</span> <span class="fu">filter</span>(DNase, Run <span class="sc">!=</span><span class="dv">2</span> <span class="sc">&amp;</span> conc <span class="sc">&gt;</span> <span class="fl">0.2</span> <span class="sc">&amp;</span> density <span class="sc">&lt;=</span> <span class="dv">1</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(DNase, <span class="dv">4</span>))</span></code></pre></div>
+<pre><code>##   Run       conc density
+## 1   1 0.04882812   0.017
+## 2   1 0.04882812   0.018
+## 3   1 0.19531250   0.121
+## 4   1 0.19531250   0.124</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>concentracion <span class="ot">=</span> <span class="fu">subset</span>(DNase, conc <span class="sc">&gt;=</span> <span class="fl">0.1</span> <span class="sc">&amp;</span> conc <span class="sc">&lt;=</span> <span class="fl">0.2</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(concentracion)</span></code></pre></div>
+<pre><code>##     Run      conc density
+## 3     1 0.1953125   0.121
+## 4     1 0.1953125   0.124
+## 19    2 0.1953125   0.137
+## 20    2 0.1953125   0.123
+## 35    3 0.1953125   0.173
+## 36    3 0.1953125   0.165
+## 51    4 0.1953125   0.118
+## 52    4 0.1953125   0.108
+## 67    5 0.1953125   0.132
+## 68    5 0.1953125   0.135
+## 83    6 0.1953125   0.191
+## 84    6 0.1953125   0.189
+## 99    7 0.1953125   0.182
+## 100   7 0.1953125   0.182
+## 115   8 0.1953125   0.152
+## 116   8 0.1953125   0.148
+## 131   9 0.1953125   0.142
+## 132   9 0.1953125   0.155
+## 147  10 0.1953125   0.164
+## 148  10 0.1953125   0.166
+## 163  11 0.1953125   0.159
+## 164  11 0.1953125   0.155</code></pre>
 </div>
 
 
@@ -454,7 +497,7 @@ $(document).ready(function ()  {
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "http://example.com/MathJax.js";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
