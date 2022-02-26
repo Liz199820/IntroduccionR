@@ -60,8 +60,7 @@ class(DNase)
 library(dplyr)
 first_filter <- filter(DNase, conc < 0.2 & conc > 0.1)
 second_filter <- filter(DNase, Run !=2 & conc > 0.2 & density <= 1)
-print(head(DNase, 4))
-concentracion = subset(DNase, conc >= 0.1 & conc <= 0.2)
-print(concentracion)
+print(first_filter)
+print(second_filter)
 
 ```

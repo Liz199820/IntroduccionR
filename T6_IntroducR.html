@@ -393,37 +393,96 @@ div.tocify {
 ##     intersect, setdiff, setequal, union</code></pre>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>first_filter <span class="ot">&lt;-</span> <span class="fu">filter</span>(DNase, conc <span class="sc">&lt;</span> <span class="fl">0.2</span> <span class="sc">&amp;</span> conc <span class="sc">&gt;</span> <span class="fl">0.1</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>second_filter <span class="ot">&lt;-</span> <span class="fu">filter</span>(DNase, Run <span class="sc">!=</span><span class="dv">2</span> <span class="sc">&amp;</span> conc <span class="sc">&gt;</span> <span class="fl">0.2</span> <span class="sc">&amp;</span> density <span class="sc">&lt;=</span> <span class="dv">1</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(DNase, <span class="dv">4</span>))</span></code></pre></div>
-<pre><code>##   Run       conc density
-## 1   1 0.04882812   0.017
-## 2   1 0.04882812   0.018
-## 3   1 0.19531250   0.121
-## 4   1 0.19531250   0.124</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>concentracion <span class="ot">=</span> <span class="fu">subset</span>(DNase, conc <span class="sc">&gt;=</span> <span class="fl">0.1</span> <span class="sc">&amp;</span> conc <span class="sc">&lt;=</span> <span class="fl">0.2</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(concentracion)</span></code></pre></div>
-<pre><code>##     Run      conc density
-## 3     1 0.1953125   0.121
-## 4     1 0.1953125   0.124
-## 19    2 0.1953125   0.137
-## 20    2 0.1953125   0.123
-## 35    3 0.1953125   0.173
-## 36    3 0.1953125   0.165
-## 51    4 0.1953125   0.118
-## 52    4 0.1953125   0.108
-## 67    5 0.1953125   0.132
-## 68    5 0.1953125   0.135
-## 83    6 0.1953125   0.191
-## 84    6 0.1953125   0.189
-## 99    7 0.1953125   0.182
-## 100   7 0.1953125   0.182
-## 115   8 0.1953125   0.152
-## 116   8 0.1953125   0.148
-## 131   9 0.1953125   0.142
-## 132   9 0.1953125   0.155
-## 147  10 0.1953125   0.164
-## 148  10 0.1953125   0.166
-## 163  11 0.1953125   0.159
-## 164  11 0.1953125   0.155</code></pre>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(first_filter)</span></code></pre></div>
+<pre><code>##    Run      conc density
+## 1    1 0.1953125   0.121
+## 2    1 0.1953125   0.124
+## 3    2 0.1953125   0.137
+## 4    2 0.1953125   0.123
+## 5    3 0.1953125   0.173
+## 6    3 0.1953125   0.165
+## 7    4 0.1953125   0.118
+## 8    4 0.1953125   0.108
+## 9    5 0.1953125   0.132
+## 10   5 0.1953125   0.135
+## 11   6 0.1953125   0.191
+## 12   6 0.1953125   0.189
+## 13   7 0.1953125   0.182
+## 14   7 0.1953125   0.182
+## 15   8 0.1953125   0.152
+## 16   8 0.1953125   0.148
+## 17   9 0.1953125   0.142
+## 18   9 0.1953125   0.155
+## 19  10 0.1953125   0.164
+## 20  10 0.1953125   0.166
+## 21  11 0.1953125   0.159
+## 22  11 0.1953125   0.155</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(second_filter)</span></code></pre></div>
+<pre><code>##    Run     conc density
+## 1    1 0.390625   0.206
+## 2    1 0.390625   0.215
+## 3    1 0.781250   0.377
+## 4    1 0.781250   0.374
+## 5    1 1.562500   0.614
+## 6    1 1.562500   0.609
+## 7    3 0.390625   0.277
+## 8    3 0.390625   0.248
+## 9    3 0.781250   0.434
+## 10   3 0.781250   0.426
+## 11   3 1.562500   0.703
+## 12   3 1.562500   0.689
+## 13   4 0.390625   0.200
+## 14   4 0.390625   0.206
+## 15   4 0.781250   0.364
+## 16   4 0.781250   0.360
+## 17   4 1.562500   0.620
+## 18   4 1.562500   0.640
+## 19   4 3.125000   0.979
+## 20   4 3.125000   0.973
+## 21   5 0.390625   0.224
+## 22   5 0.390625   0.220
+## 23   5 0.781250   0.385
+## 24   5 0.781250   0.390
+## 25   5 1.562500   0.658
+## 26   5 1.562500   0.647
+## 27   6 0.390625   0.272
+## 28   6 0.390625   0.277
+## 29   6 0.781250   0.440
+## 30   6 0.781250   0.426
+## 31   6 1.562500   0.686
+## 32   6 1.562500   0.676
+## 33   7 0.390625   0.282
+## 34   7 0.390625   0.273
+## 35   7 0.781250   0.444
+## 36   7 0.781250   0.439
+## 37   7 1.562500   0.686
+## 38   7 1.562500   0.668
+## 39   8 0.390625   0.226
+## 40   8 0.390625   0.222
+## 41   8 0.781250   0.392
+## 42   8 0.781250   0.383
+## 43   8 1.562500   0.658
+## 44   8 1.562500   0.644
+## 45   9 0.390625   0.239
+## 46   9 0.390625   0.242
+## 47   9 0.781250   0.420
+## 48   9 0.781250   0.395
+## 49   9 1.562500   0.624
+## 50   9 1.562500   0.705
+## 51  10 0.390625   0.259
+## 52  10 0.390625   0.256
+## 53  10 0.781250   0.439
+## 54  10 0.781250   0.439
+## 55  10 1.562500   0.690
+## 56  10 1.562500   0.701
+## 57  11 0.390625   0.246
+## 58  11 0.390625   0.252
+## 59  11 0.781250   0.427
+## 60  11 0.781250   0.411
+## 61  11 1.562500   0.704
+## 62  11 1.562500   0.684
+## 63  11 3.125000   0.994
+## 64  11 3.125000   0.980</code></pre>
 </div>
 
 
