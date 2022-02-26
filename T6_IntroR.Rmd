@@ -41,23 +41,32 @@ Crear un identificador nombre "ciudad" y asigne como valor el nombre de alguna c
 pais_andes <- c("Argentina", "Bolivia", "Chile", "Colombia", "Ecuador", "Perú", "Venezuela")
 print(pais_andes)
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
 ```
 
-## Including Plots
+## 3. Dataframe
+Crear un dataframe con 12 eventos (files) y 5 variables (columnas), cada columna debe tener diferentes tipos de datos (entero, decimal, caracter, logico)
 
-You can also embed plots, for example:
+``` {r 3}
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+poblacion_países_america <- data.frame(identador = seq(1:12), 
+                                norte_sur = as.factor(c(rep(0, 10), 1, 1)), 
+                                países = c("Argentina", "Bolivia", "Brasil", "Chile", "Colombia", "Ecuador", "Guyana",                                            "Paraguay", "Perú", "Surinam", "USA", "Mexico"),
+                                poblacion = c(45.38, 11.67, 212.6, 19.12, 50.88, 17.64, 0.79, 32.97, 0.59,
+                                              329.5, 128.9, 125)) #millones
+``` 
 
-ciudad <- "tena"
+## 4. Dataset
+Cargue el dataset "DNase" e identifique su estructura. Extraiga (subset) los datos que cumpla con las condiciones de: "conc" (concentración) entre 0.1 y 0.2 / "Run" diferente a 2, "conc" mayor a 0.2 y "densitiy" menor o igual a 1.0
+
+```{r 4}
+
+setwd("C:/Users/a123k/OneDrive/Documentos")
+library(DNase)
+database <-(DNase)
+class(DNase)
+library(dplyr)
+filtro_1 = filter(DNAse, conc < 0.2 & conc > 0.1)
+filtro_2 <- filter(DNAse, Run !=2 & conc > 0.2 & density <= 1)
+
 
 ```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
